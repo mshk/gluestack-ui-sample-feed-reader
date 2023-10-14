@@ -1,9 +1,4 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
 import { useEffect } from 'react';
@@ -11,6 +6,7 @@ import { useColorScheme } from 'react-native';
 
 import { config } from '../gluestack-ui.config';
 import { GluestackUIProvider } from '@gluestack-ui/themed';
+import { BIZUDPGothic_400Regular, BIZUDPGothic_700Bold } from '@expo-google-fonts/biz-udpgothic'
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -28,6 +24,8 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    BIZUDPGothic_400Regular,
+    BIZUDPGothic_700Bold,
     ...FontAwesome.font,
   });
 
@@ -54,14 +52,9 @@ function RootLayoutNav() {
 
   return (
     <GluestackUIProvider config={config}>
-      <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="login" options={{ headerShown: false }} />
-        <Stack.Screen name="signup" options={{ headerShown: false }} />
-        <Stack.Screen name="forgot-password" options={{ headerShown: false }} />
-        <Stack.Screen name="verify-otp" options={{ headerShown: false }} />
-        <Stack.Screen name="create-password" options={{ headerShown: false }} />
-      </Stack>
+      <Stack screenOptions={{
+        headerShown: false,
+      }}/>
     </GluestackUIProvider>
   );
 }

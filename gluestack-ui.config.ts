@@ -3,6 +3,12 @@ import { createConfig } from '@gluestack-ui/themed';
 
 const config = createConfig({
   ...defaultConfig,
+  fonts: {
+    ...defaultConfig.fonts,
+    heading: 'BIZUDPGothic_400Regular, biz-udpgothic, sans-serif',
+    body: 'BIZUDPGothic_400Regular, biz-udpgothic, sans-serif',
+    mono: 'Menlo, monospace',
+  },
   tokens: {
     ...defaultConfig.tokens,
     colors: {
